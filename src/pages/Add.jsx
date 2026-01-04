@@ -3,6 +3,7 @@ import { Box, Button, FormControl, InputLabel, MenuItem, Paper, Select, TextFiel
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios"
 import { toast } from 'react-toastify'
+import { baseUrl } from '../api'
 
 export default function Add() {
     const navigate = useNavigate()
@@ -19,7 +20,7 @@ export default function Add() {
         // console.log(formData)
         setIsLoading(true)
         try {
-            const res = await axios.post(`http://localhost:7000/api/expense/insert`, formData)
+            const res = await axios.post(`${baseUrl}/api/expense/insert`, formData)
             console.log(res)
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -37,7 +38,7 @@ export default function Add() {
         }
     }
     return <Box>
-        <Box sx={{ textAlign: "center" }}>
+        <Box sx={{  textAlign: "center" }}>
             <Typography variant='h4'
             sx={{ textAlign: "center", mb: 3, color: "primary.main", fontWeight: 600 }}>
             Expense List </Typography>

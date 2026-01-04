@@ -1,0 +1,1 @@
+export const baseUrl="https://expense-tracker-backend-wqfq.onrender.com"
