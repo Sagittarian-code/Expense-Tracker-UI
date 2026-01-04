@@ -10,11 +10,12 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link, Links } from 'react-router-dom';
+import { baseUrl } from '../api';
 
 export default function ExpenseTable({ allExpenses, fetchAllExpenses }) {
   const handleDelete = async (expensesId) => {
     try {
-      const res = await axios.delete(`http://localhost:7000/api/expense/delete/${expensesId}`)
+      const res = await axios.delete(`${baseUrl}/api/expense/delete/${expensesId}`)
       // console.log(res.data);
       if (res.data.success) {
         fetchAllExpenses();
@@ -31,13 +32,13 @@ export default function ExpenseTable({ allExpenses, fetchAllExpenses }) {
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell>Sl.No</TableCell>
-            <TableCell>Title</TableCell>
-            <TableCell>Category</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell>Spent On</TableCell>
-            <TableCell>Action</TableCell>
+          <TableRow sx={{ bgcolor: "primary.main" }} >
+            <TableCell sx={{ color: "white" }}>Sl.No</TableCell>
+    <TableCell sx={{ color: "white" }}>Title</TableCell>
+    <TableCell sx={{ color: "white" }}>Category</TableCell>
+    <TableCell sx={{ color: "white" }}>Amount</TableCell>
+    <TableCell sx={{ color: "white" }}>Spent On</TableCell>
+    <TableCell sx={{ color: "white" }}>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

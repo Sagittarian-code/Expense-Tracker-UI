@@ -8,8 +8,13 @@ export default function FloatingButton() {
     const navigate=useNavigate();
     const fabStyle = {
         position: "absolute",
-        bottom: 16,
-        right: 16,
+    bottom: 16,
+    right: 16,
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+    '&:hover': {
+        transform: "scale(1.1)",
+        boxShadow: 6,
+    }
     };
     return (
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
